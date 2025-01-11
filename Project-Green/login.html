@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup and Login - Green Capital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .social-buttons button {
+            flex: 1;
+            margin: 0 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .social-buttons .facebook {
+            background-color: #3b5998;
+        }
+
+        .social-buttons .google {
+            background-color: #db4437;
+        }
+
+        .social-buttons button:hover {
+            opacity: 0.9;
+        }
+
+        .alt-option {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .alt-option a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .alt-option a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Green Capital</div>
+    </header>
+    <div class="container">
+        <h1>Signup</h1>
+        <form id="signup-form" action="home.html" method="GET">
+            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="Phone Number" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+
+        <div class="social-buttons">
+            <button class="facebook">Sign Up with Facebook</button>
+            <button class="google">Sign Up with Google</button>
+        </div>
+
+        <div class="alt-option">
+            Already have an account? <a href="#" onclick="toggleForms()">Login here</a>
+        </div>
+    </div>
+
+    <div class="container" id="login-form" style="display: none;">
+        <h1>Login</h1>
+        <form action="home.html" method="GET">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <div class="social-buttons">
+            <button class="facebook">Login with Facebook</button>
+            <button class="google">Login with Google</button>
+        </div>
+
+        <div class="alt-option">
+            Don't have an account? <a href="#" onclick="toggleForms()">Sign up here</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const signupForm = document.getElementById('signup-form');
+            const loginForm = document.getElementById('login-form');
+            const isSignupVisible = signupForm.closest('.container').style.display !== 'none';
+
+            signupForm.closest('.container').style.display = isSignupVisible ? 'none' : 'block';
+            loginForm.style.display = isSignupVisible ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
